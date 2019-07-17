@@ -1,0 +1,17 @@
+.smiley-header{
+    text-align: center;
+    height: 12rem;
+    margin-top: 12%;
+    margin-bottom: 7%;
+}
+
+.price-tag {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.btn-order{
+    background-color: #ff5722;
+    border-color: #ff5722;
+    float: right;
+}

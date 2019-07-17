@@ -1,0 +1,29 @@
+.react-overlay-loader-spinner:before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: -30px;
+    margin-left: -20px;
+    border-radius: 50%;
+    border: 3px solid #eee;
+    border-top-color: #ff5722;
+    animation: react-overlay-loader-spinner 0.8s linear infinite;
+}
+
+.error-message{
+
+    background-color: #f2dede;
+    margin-top: 1.3rem;
+    border-color: #ebccd1;
+    border-radius: 7px;
+    border-width: 2px;
+    border-style: solid;
+    color: #a94442;
+
+    padding: 15px;
+    margin-bottom: 20px;
+}
