@@ -1,6 +1,8 @@
 ## Smiley Ecommerce Store.
 This is an ecommerce site, where you can buy all sorts of ascii faces like `(ノ・∀・)ノ` and `¯_(ツ)_/¯`, in a wide variety of font sizes. The homepage should display a list of products for people to browse.
 
+
+
 ### Completed Features
 ----
 
@@ -16,12 +18,7 @@ This is an ecommerce site, where you can buy all sorts of ascii faces like `(ノ
 - when the user reaches the end and there are no more products to display, show the message "~ end of catalogue ~".
 
 
-### Completed Ads features
----
-- after every 20 products we need to insert an advertisement from one of our sponsors. Use the same markup as the advertisement in the header shown in `public/index/html`, but make sure the `?r` query param is randomly generated each time an ad is displayed.
-
-
-###
+### Installation
 ----
 
 - Clone the repository
