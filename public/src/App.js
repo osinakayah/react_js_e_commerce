@@ -13,7 +13,7 @@ export  default class App extends Component {
             <Provider store={createStore()}>
                 <div>
                     <Navbar bg="light" expand="lg">
-                        <Navbar.Brand href="#home">Creatella</Navbar.Brand>
+                        <Navbar.Brand href="#home">Font Store</Navbar.Brand>
 
                     </Navbar>
                 </div>
