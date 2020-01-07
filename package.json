@@ -24,6 +24,7 @@
     "react-idle-timer": "^4.2.5",
     "react-overlay-loader": "^0.0.3",
     "react-redux": "^7.1.0",
+    "react-router-dom": "^5.1.2",
     "redux": "^4.0.1",
     "redux-saga": "^1.0.3",
     "reduxsauce": "^1.1.0",

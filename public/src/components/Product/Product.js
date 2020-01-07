@@ -24,12 +24,12 @@ class Product extends PureComponent{
         return providedDate.getDate() + "-" + months[providedDate.getMonth()] + "-" + providedDate.getFullYear()
     }
     productPurchasedSuccessfully = (price) => {
-        window.location.href = `?status=success&price=${price}`
+        console.log(this.props)
     }
     render() {
         const {product} = this.props;
         return (
-            <Col xs={12} sm={6} md={4} lg={3}>
+            <Col xs={12}  sm={6} md={4} lg={4}>
                 <br/>
                 <Card>
                     <Card.Header>

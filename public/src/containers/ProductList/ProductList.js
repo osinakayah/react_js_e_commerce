@@ -27,7 +27,7 @@ class ProductList extends PureComponent {
             _limit: PER_PAGE_LIMIT
         });
         document.addEventListener('scroll', this.trackScrolling);
-
+        this.props.history.push('/product/1')
     }
 
     _onFetchProducts = (data) => {
