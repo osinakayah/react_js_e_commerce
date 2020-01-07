@@ -27,6 +27,10 @@ class ProductList extends PureComponent {
             _limit: PER_PAGE_LIMIT
         });
         document.addEventListener('scroll', this.trackScrolling);
+
+    }
+
+    _gotoProductDetail = () => {
         this.props.history.push('/product/detail')
     }
 
@@ -36,7 +40,6 @@ class ProductList extends PureComponent {
         if (!products.error && products.error !== ERROR_END_OF_CATALOGUE) {
             this.props.dispatchFetchProducts(data)
         }
-
     }
 
 
@@ -45,10 +48,10 @@ class ProductList extends PureComponent {
             return payload.reduce((sumProducts, currentProduct, index) => {
 
                 if (sumProducts.length > 0 && sumProducts.length % 20 === 0) {
-                    return sumProducts.concat(<Ad key={index + 'ad'}/>).concat(<Product key={index}
+                    return sumProducts.concat(<Ad key={index + 'ad'}/>).concat(<Product gotoProductDetail={this._gotoProductDetail} key={index}
                                                                                         product={currentProduct}/>);
                 }
-                return sumProducts.concat(<Product key={index} product={currentProduct}/>)
+                return sumProducts.concat(<Product gotoProductDetail={this._gotoProductDetail} key={index} product={currentProduct}/>)
             }, []);
         }
     }

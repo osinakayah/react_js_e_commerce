@@ -23,9 +23,6 @@ class Product extends PureComponent{
 
         return providedDate.getDate() + "-" + months[providedDate.getMonth()] + "-" + providedDate.getFullYear()
     }
-    productPurchasedSuccessfully = (price) => {
-        console.log(this.props)
-    }
     render() {
         const {product} = this.props;
         return (
@@ -38,7 +35,7 @@ class Product extends PureComponent{
                     <Card.Body>
                         <p> <span className={'price-tag'}>&#x24; {this.formatPrice(product.price)}</span></p>
                         <small><span className={'date-container'}>{this.formatDate(product.date)}</span></small>
-                        <Button onClick={() => this.productPurchasedSuccessfully(product.price)} className={'btn-order'} variant="danger">Order</Button>
+                        <Button onClick={this.props.gotoProductDetail} className={'btn-order'} variant="danger">Order</Button>
                     </Card.Body>
                 </Card>
                 <br/>
