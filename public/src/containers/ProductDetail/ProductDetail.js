@@ -62,7 +62,7 @@ class ProductDetail extends PureComponent {
                                 <small><span
                                     className={'date-container'}>{this.formatDate(this.state.product.date)}</span>
                                 </small>
-                                <Button onClick={this.gotoSuccessPage} className={'btn-order'} variant="danger">Pay</Button>
+                                <Button onClick={this.gotoSuccessPage} className={'btn-order'} variant="danger">Buy Now</Button>
                             </Card.Body>
                         </Card>
                         <br/>

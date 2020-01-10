@@ -35,7 +35,7 @@ class Product extends PureComponent{
                     <Card.Body>
                         <p> <span className={'price-tag'}>&#x24; {this.formatPrice(product.price)}</span></p>
                         <small><span className={'date-container'}>{this.formatDate(product.date)}</span></small>
-                        <Button onClick={this.props.gotoProductDetail} className={'btn-order'} variant="danger">Order</Button>
+                        <Button onClick={this.props.gotoProductDetail} className={'btn-order'} variant="danger">Product Detail</Button>
                     </Card.Body>
                 </Card>
                 <br/>
