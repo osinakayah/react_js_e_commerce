@@ -103,17 +103,17 @@ class ProductList extends PureComponent {
             <div>
                 <br/>
 
-                <Row>
-                    <Col xs={12} md={4} lg={3}>
-                        <Form.Control as="select" onChange={this._onSortingMethodChanged}>
-                            <option value={''}>Select Sorting Method</option>
-                            <option value={'size'}>Size</option>
-                            <option value={'price'}>Prize</option>
-                            <option value={'id'}>ID</option>
-                        </Form.Control>
-                    </Col>
+                {/*<Row>*/}
+                    {/*<Col xs={12} md={4} lg={3}>*/}
+                        {/*<Form.Control as="select" onChange={this._onSortingMethodChanged}>*/}
+                            {/*<option value={''}>Select Sorting Method</option>*/}
+                            {/*<option value={'size'}>Size</option>*/}
+                            {/*<option value={'price'}>Prize</option>*/}
+                            {/*<option value={'id'}>ID</option>*/}
+                        {/*</Form.Control>*/}
+                    {/*</Col>*/}
 
-                </Row>
+                {/*</Row>*/}
 
                 <Row>
                     {this._renderProductsList(products.payload)}

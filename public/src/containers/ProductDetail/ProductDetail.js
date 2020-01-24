@@ -7,11 +7,13 @@ class ProductDetail extends PureComponent {
         super(props);
         this.state = {
             product: {
-                id: "68050-1pdcbmerd4p",
-                size: 29,
-                price: 197,
-                face: "( .-. )",
-                date: "Wed Dec 25 2019 09:27:29 GMT+0100 (West Africa Standard Time)"
+                "id": "89408-9vsyiv88ym9",
+                "size": 37,
+                "price": 4000,
+                "face": "( .-. )",
+                "date": "Sun Jan 12 2020 14:32:29 GMT+0100 (West Africa Standard Time)",
+                "image": "http://40.115.152.122/api/products/image/f88cbcb7cd101fc0317ec835bfd4adc62.jpg",
+                "productName": "Loretta Loretta Night Care Cream 120g"
             }
         }
     }
@@ -50,21 +52,16 @@ class ProductDetail extends PureComponent {
                 <Row style={{marginLeft: 'auto', marginRight: 'auto'}}>
                     <Col xs={12} sm={12} md={6} lg={5}>
                         <br/>
-                        <Card>
-                            <Card.Header>
-                                <p className={'smiley-header'}
-                                   style={{fontSize: this.state.product.size}}>{this.state.product.face}</p>
-                            </Card.Header>
+                        <Card style={{height: '33rem'}}>
+                            <Card.Img style={{padding: '2rem', width: '100%', height: '20rem'}} variant="top" src={this.state.product.image} />
                             <Card.Body>
-                                <p><span
-                                    className={'price-tag'}>&#x24; {this.formatPrice(this.state.product.price)}</span>
-                                </p>
-                                <small><span
-                                    className={'date-container'}>{this.formatDate(this.state.product.date)}</span>
-                                </small>
-                                <Button onClick={this.gotoSuccessPage} className={'btn-order'} variant="danger">Buy Now</Button>
+                                <Card.Title>{this.state.product.productName}</Card.Title>
+                                <p> <span className={'price-tag'}>&#x24; {this.formatPrice(this.state.product.price)}</span></p>
+                                <small><span className={'date-container'}>{this.formatDate(this.state.product.date)}</span></small>
+                                <Button onClick={this.gotoSuccessPage} className={'btn-order'} variant="danger">Product Detail</Button>
                             </Card.Body>
                         </Card>
+
                         <br/>
                     </Col>
 

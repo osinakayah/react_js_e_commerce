@@ -1,18 +1,12 @@
-// a library to wrap and simplify api calls
-import apisauce from 'apisauce'
-import {BASE_URL} from '../config/'
 
-// our "constructor"
-const create = (baseURL = BASE_URL) => {
-    // ------
-    // STEP 1
-    // ------
-    //
-    // Create and configure an apisauce-based api object.
-    //
+import apisauce from 'apisauce'
+import { BASE_URL } from "../config";
+
+const create = () => {
+
     const api = apisauce.create({
         // base URL is read from the "constructor"
-        baseURL,
+        baseURL: BASE_URL,
     })
 
     const getProductsRequest = data => {

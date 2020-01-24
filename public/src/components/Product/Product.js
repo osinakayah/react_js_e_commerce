@@ -28,16 +28,16 @@ class Product extends PureComponent{
         return (
             <Col xs={12}  sm={6} md={4} lg={4}>
                 <br/>
-                <Card>
-                    <Card.Header>
-                        <p className={'smiley-header'} style={{fontSize: product.size}} >{product.face}</p>
-                    </Card.Header>
+                <Card style={{height: '33rem'}}>
+                    <Card.Img style={{padding: '2rem', width: '100%', height: '20rem'}} variant="top" src={product.image} />
                     <Card.Body>
+                        <Card.Title>{product.productName}</Card.Title>
                         <p> <span className={'price-tag'}>&#x24; {this.formatPrice(product.price)}</span></p>
                         <small><span className={'date-container'}>{this.formatDate(product.date)}</span></small>
                         <Button onClick={this.props.gotoProductDetail} className={'btn-order'} variant="danger">Product Detail</Button>
                     </Card.Body>
                 </Card>
+
                 <br/>
             </Col>
         )
