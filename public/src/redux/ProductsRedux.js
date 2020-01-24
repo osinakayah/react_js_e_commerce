@@ -8,8 +8,11 @@ const { Types, Creators } = createActions({
     productsSuccess: ['payload'],
     productsFailure: ['error'],
 
-    productsLazyLoadRequest: ['lazyData'],
-    productsLazyLoadSuccess: ['lazyLoadedProducts'],
+    productRequest: ['id'],
+    productSuccess: ['product'],
+    productFailure: ['error'],
+
+
 })
 
 export const ProductsTypes = Types
@@ -18,11 +21,19 @@ export default Creators
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
-    data: null,
-    lazyData: null,
     fetching: false,
     payload: [],
-    lazyLoadedProducts: [],
+    product: {
+        id: -1,
+        productName: "",
+        description: "",
+        productImage: "",
+        price: 0,
+        reward: 0,
+        productLandingPage: "",
+        createdAt: "",
+        updatedAt: ""
+    },
     error: null
 })
 
@@ -35,27 +46,34 @@ export const ProductsSelectors = {
 /* ------------- Reducers ------------- */
 
 // request the data the api
-export const request = (state, { data }) =>
-    state.merge({ fetching: true, data })
+export const request = state =>
+    state.merge({ fetching: true })
 
 // successful api lookup
 export const success = (state, {payload}) => {
     return state.merge({ fetching: false, error: null, payload })
 }
 
-// request the data the api
-export const lazyRequest = (state, { lazyData }) =>
-    state.merge({ lazyData })
-
 // Something went wrong somewhere.
 export const failure = (state, {error}) =>
     state.merge({ fetching: false, error })
 
-// successful api lookup
-export const lazysSuccess = (state, {lazyLoadedProducts}) => {
 
-    return state.merge({ lazyLoadedProducts })
+
+
+// request the data the api
+export const productRequest = state =>
+    state.merge({ fetching: true })
+
+// successful api lookup
+export const productSuccess = (state, {product}) => {
+    return state.merge({ fetching: false, product })
 }
+
+// Something went wrong somewhere.
+export const productFailure = (state, {error}) =>
+    state.merge({ fetching: false})
+
 
 
 /* ------------- Hookup Reducers To Types ------------- */
@@ -65,6 +83,7 @@ export const reducer = createReducer(INITIAL_STATE, {
     [Types.PRODUCTS_SUCCESS]: success,
     [Types.PRODUCTS_FAILURE]: failure,
 
-    [Types.PRODUCTS_LAZY_LOAD_REQUEST]: lazyRequest,
-    [Types.PRODUCTS_LAZY_LOAD_SUCCESS]: lazysSuccess,
+    [Types.PRODUCT_REQUEST]: productRequest,
+    [Types.PRODUCT_SUCCESS]: productSuccess,
+    [Types.PRODUCT_FAILURE]: productFailure,
 })

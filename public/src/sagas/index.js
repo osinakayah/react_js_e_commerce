@@ -2,7 +2,7 @@ import { takeLatest, all } from 'redux-saga/effects'
 import { ProductsTypes } from "../redux/ProductsRedux";
 import API from '../services/Api';
 
-import { fetchProducts, lazyLoadProducts } from "./ProductsSaga";
+import { fetchProducts, fetchProduct } from "./ProductsSaga";
 
 
 /* ------------- API ------------- */
@@ -14,6 +14,6 @@ const api = API.create();
 export default function * root() {
     yield all([
         takeLatest(ProductsTypes.PRODUCTS_REQUEST, fetchProducts, api),
-        takeLatest(ProductsTypes.PRODUCTS_LAZY_LOAD_REQUEST, lazyLoadProducts, api),
+        takeLatest(ProductsTypes.PRODUCT_REQUEST, fetchProduct, api),
     ]);
 }

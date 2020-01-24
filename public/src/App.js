@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter, Route, } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import {Provider} from 'react-redux'
 import {Container, Navbar} from 'react-bootstrap';
 import createStore from './redux'
@@ -22,7 +22,7 @@ export  default class App extends Component {
                             exact
                             component={ProductList} />
                         <Route
-                            path={'/product/detail'}
+                            path={'/product/detail/:id'}
                             exact
                             component={ProductDetail} />
                         <Route

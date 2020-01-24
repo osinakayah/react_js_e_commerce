@@ -9,11 +9,15 @@ const create = () => {
         baseURL: BASE_URL,
     })
 
-    const getProductsRequest = data => {
-        return api.get(`api/products?${data}`)
+    const getProductsRequest = () => {
+        return api.get(`products?sort=id,DESC`)
+    }
+    const getProductRequest = (id) => {
+        return api.get(`products/${id}`)
     }
     return {
-        getProductsRequest
+        getProductsRequest,
+        getProductRequest
 
     }
 }

@@ -1,6 +1,9 @@
 import React, {PureComponent} from 'react';
 import 'react-overlay-loader/styles.css';
 import {Col, Row, Card, Button} from "react-bootstrap";
+import {connect} from "react-redux";
+import ProductsActions from "../../redux/ProductsRedux";
+import {BASE_URL} from "../../config";
 
 class ProductDetail extends PureComponent {
     constructor(props) {
@@ -16,6 +19,10 @@ class ProductDetail extends PureComponent {
                 "productName": "Loretta Loretta Night Care Cream 120g"
             }
         }
+    }
+    componentDidMount() {
+        const {match: {params}} = this.props;
+        this.props.dispatchFetchProduct(params.id);
     }
 
     formatPrice = price => {
@@ -45,7 +52,7 @@ class ProductDetail extends PureComponent {
         this.props.history.push('/success')
     }
     render() {
-
+        const { product } = this.props;
         return (
             <div>
                 <br/>
@@ -53,12 +60,11 @@ class ProductDetail extends PureComponent {
                     <Col xs={12} sm={12} md={6} lg={5}>
                         <br/>
                         <Card style={{height: '33rem'}}>
-                            <Card.Img style={{padding: '2rem', width: '100%', height: '20rem'}} variant="top" src={this.state.product.image} />
+                            <Card.Img style={{padding: '2rem', width: '100%', height: '20rem', objectFit: 'contain' }} variant="top" src={`${BASE_URL}products/image/${product.productImage}`} />
                             <Card.Body>
-                                <Card.Title>{this.state.product.productName}</Card.Title>
-                                <p> <span className={'price-tag'}>&#x24; {this.formatPrice(this.state.product.price)}</span></p>
-                                <small><span className={'date-container'}>{this.formatDate(this.state.product.date)}</span></small>
-                                <Button onClick={this.gotoSuccessPage} className={'btn-order'} variant="danger">Product Detail</Button>
+                                <Card.Title>{product.productName}</Card.Title>
+                                <p> <span className={'price-tag'}>&#165; {this.formatPrice(product.reward)}</span></p>
+                                <Button onClick={this.gotoSuccessPage} className={'btn-order'} variant="danger">購入</Button>
                             </Card.Body>
                         </Card>
 
@@ -71,14 +77,7 @@ class ProductDetail extends PureComponent {
                             <Card.Header>
                                 Description
                             </Card.Header>
-                            <Card.Body>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                mollit anim id est laborum
-                            </Card.Body>
+                            <Card.Body>{product.description}</Card.Body>
                         </Card>
                         <br/>
                     </Col>
@@ -88,5 +87,17 @@ class ProductDetail extends PureComponent {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        product: state.products.product
+    }
+}
 
-export default (ProductDetail)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        dispatchFetchProduct: (id) => dispatch(ProductsActions.productRequest(id)),
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail)
