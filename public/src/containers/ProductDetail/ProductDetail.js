@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import ProductsActions from "../../redux/ProductsRedux";
 import {BASE_URL} from "../../config";
 
+
 class ProductDetail extends PureComponent {
     constructor(props) {
         super(props);
@@ -26,25 +27,7 @@ class ProductDetail extends PureComponent {
     }
 
     formatPrice = price => {
-        return (price / 100).toFixed(2);
-    }
-    formatDate = date => {
-        const rightNow = new Date();
-        const providedDate = new Date(date);
-        const instanceMonth = rightNow.getMonth();
-        const instanceYear = rightNow.getFullYear();
-        const instanceDate = rightNow.getDate();
-
-        const providedMonth = providedDate.getMonth();
-        const providedYear = providedDate.getFullYear();
-        const providedDay = providedDate.getDate();
-
-        if ((instanceYear === providedYear) && (instanceMonth === providedMonth) && (instanceDate - providedDay) < 7) {
-            return `${instanceDate - providedDay} Day(s) ago`
-        }
-        const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-
-        return providedDate.getDate() + "-" + months[providedDate.getMonth()] + "-" + providedDate.getFullYear()
+        return (price * 100).toFixed(2);
     }
 
 
