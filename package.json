@@ -5,7 +5,7 @@
   "description": "Build a grid of product items and ads",
   "main": "server/index.js",
   "scripts": {
-    "start": "http-server -p 8080 -a 127.0.0.1",
+    "start": "http-server -p 3333 -a 127.0.0.1",
     "test": "jest --coverage",
     "build-prod": "webpack --mode production",
     "build-dev": "webpack --mode development"
