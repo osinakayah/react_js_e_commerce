@@ -13,7 +13,7 @@ export  default class App extends Component {
         return (
             <Provider store={createStore()}>
                 <Navbar bg="light" expand="lg">
-                    <Navbar.Brand href="ec">Store</Navbar.Brand>
+                    <Navbar.Brand href="/ec">Store</Navbar.Brand>
                 </Navbar>
                 <HashRouter>
                     <Container>
