@@ -4,7 +4,7 @@ import { BASE_URL } from "../../config";
 import './Product.css'
 class Product extends PureComponent{
     formatPrice = price => {
-        return (price*100).toFixed(2);
+        return (price).toFixed(2);
     }
     render() {
         const {product} = this.props;
